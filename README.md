@@ -1,56 +1,35 @@
-## How-to, this model based on [evolution-strategy](https://github.com/huseinzol05/Stock-Prediction-Models/tree/master/agent)
+# Stock forecasting JS
 
-1. You can check [realtime-evolution-strategy.ipynb](realtime-evolution-strategy.ipynb) for to train an evolution strategy to do realtime trading.
+LSTM Model for stock forecasting and buying simulation inside Tensorflow JS, so everyone can try!
 
-I trained the model to learn trading on different stocks,
+## Stack
 
-```python
-['TWTR.csv',
- 'GOOG.csv',
- 'FB.csv',
- 'LB.csv',
- 'MTDR.csv',
- 'CPRT.csv',
- 'FSV.csv',
- 'TSLA.csv',
- 'SINA.csv',
- 'GWR.csv']
-```
+Graphic library: [Echarts](https://ecomfe.github.io/echarts-examples/public/index.html), [D3](https://d3js.org/)
 
-You might want to add more to cover more stochastic patterns.
+CSV parsing: [Papaparse JS](https://www.papaparse.com/)
 
-2. Run [app.py](app.py) to serve the checkpoint model using Flask,
+Linear algebra: [numeric JS](https://github.com/sloisel/numeric), [numJS](https://github.com/cliffordwolf/NumJS), [Tensorflow JS](https://js.tensorflow.org/)
 
-```bash
-python3 app.py
-```
+## How-to
 
-```text
-* Serving Flask app "app" (lazy loading)
-* Environment: production
-  WARNING: This is a development server. Do not use it in a production deployment.
-  Use a production WSGI server instead.
-* Debug mode: off
-* Running on http://0.0.0.0:8005/ (Press CTRL+C to quit)
-```
+1. Clone this folder and just open [index.html](index.html),
 
-3. You can check requests example in [request.ipynb](request.ipynb) to get a kickstart.
+Or, go to [huseinhouse.com/stock-forecasting-js](https://huseinhouse.com/stock-forecasting-js/)!
 
-```bash
-curl http://localhost:8005/trade?data=[13.1, 13407500]
-```
+![alt text](screenshot/1.png)
 
-```python
-{'action': 'sell', 'balance': 971.1199990000001, 'investment': '10.224268 %', 'status': 'sell 1 unit, price 16.709999', 'timestamp': '2019-05-26 01:12:10.370206'}
-{'action': 'nothing', 'balance': 971.1199990000001, 'status': 'do nothing', 'timestamp': '2019-05-26 01:12:10.376245'}
-{'action': 'sell', 'balance': 987.7799990000001, 'investment': '11.066667 %', 'status': 'sell 1 unit, price 16.660000', 'timestamp': '2019-05-26 01:12:10.382282'}
-{'action': 'nothing', 'balance': 987.7799990000001, 'status': 'do nothing', 'timestamp': '2019-05-26 01:12:10.388330'}
-{'action': 'nothing', 'balance': 987.7799990000001, 'status': 'do nothing', 'timestamp': '2019-05-26 01:12:10.394324'}
-{'action': 'sell', 'balance': 1006.1299990000001, 'investment': '18.387097 %', 'status': 'sell 1 unit, price 18.350000', 'timestamp': '2019-05-26 01:12:10.400104'}
-{'action': 'nothing', 'balance': 1006.1299990000001, 'status': 'do nothing', 'timestamp': '2019-05-26 01:12:10.405804'}
-{'action': 'nothing', 'balance': 1006.1299990000001, 'status': 'do nothing', 'timestamp': '2019-05-26 01:12:10.411531'}
-```
+2. Check hyper parameters you want to tune,
 
-## Notes
+![alt text](screenshot/2.png)
 
-1. You can use this code to integrate with realtime socket, or any APIs you wanted, imagination is your limit now.
+3. You can upload any stock CSV, downloaded from Yahoo finance or any website. Any error, please open an issue.
+
+4. Train the model and wait it's fitting!
+
+5. After done training, it will predict where to buy and sell,
+
+![alt text](screenshot/3.png)
+
+Comparing histogram and loss graph,
+
+![alt text](screenshot/4.png)
